@@ -1,6 +1,3 @@
-CREATE DATABASE IF NOT EXISTS sirb_db CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE sirb_db;
-
 DROP TABLE IF EXISTS agendamentos;
 DROP TABLE IF EXISTS horarios_bloqueados;
 DROP TABLE IF EXISTS barbeiros;
