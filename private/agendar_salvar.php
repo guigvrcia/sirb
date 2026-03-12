@@ -24,28 +24,6 @@ if (strtotime($data_hora) < time()) {
 }
 
 $stmt = $pdo->prepare("
-    SELECT id
-    FROM horarios_bloqueados
-    WHERE barbeiro_id = ? AND data = ? AND hora = ?
-");
-$stmt->execute([$barbeiro_id, $data, $hora . ':00']);
-if ($stmt->fetch()) {
-    flash_set('danger', 'Este horário está bloqueado para este barbeiro.');
-    redirect(BASE_URL . '/private/agendar.php');
-}
-
-$stmt = $pdo->prepare("
-    SELECT id
-    FROM agendamentos
-    WHERE barbeiro_id = ? AND data = ? AND hora = ? AND status = 'agendado'
-");
-$stmt->execute([$barbeiro_id, $data, $hora . ':00']);
-if ($stmt->fetch()) {
-    flash_set('danger', 'Este horário já está ocupado para este barbeiro.');
-    redirect(BASE_URL . '/private/agendar.php');
-}
-
-$stmt = $pdo->prepare("
     INSERT INTO agendamentos (usuario_id, item_id, barbeiro_id, data, hora)
     VALUES (?, ?, ?, ?, ?)
 ");
