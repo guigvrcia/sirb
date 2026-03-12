@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS sirb_db CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE sirb_db;
+
 DROP TABLE IF EXISTS agendamentos;
 DROP TABLE IF EXISTS horarios_bloqueados;
 DROP TABLE IF EXISTS barbeiros;
@@ -78,15 +81,15 @@ CREATE TABLE horarios_bloqueados (
 
 -- Admin
 INSERT INTO usuarios (nome, email, senha_hash, perfil) VALUES
-('Administrador', 'admin@sirb.local', '$2y$10$1k9iQdrx6V9QfXQ0v9dx2e9b9dQZbYJ4q6k9gVqQHzzcB3nB1n5wK', 'admin');
+('Administrador', 'admin@sirb.com', '$2y$10$inSqxZnkTQX.m33./WD4jO8q2wgsmfS6/zg6bKg9Pat/emolTKTRK', 'admin');
 
 -- Barbeiro
 INSERT INTO usuarios (nome, email, senha_hash, perfil) VALUES
-('João Barbeiro', 'barbeiro@sirb.local', '$2y$10$1k9iQdrx6V9QfXQ0v9dx2e9b9dQZbYJ4q6k9gVqQHzzcB3nB1n5wK', 'barbeiro');
+('João Barbeiro', 'barbeiro@sirb.com', '$2y$10$e1FdGujVXS4qqk15I5L8PuysvNRJjHZTN9rZLAnJLqsze3p4C2WLi', 'barbeiro');
 
 -- Cliente exemplo
 INSERT INTO usuarios (nome, email, senha_hash, perfil) VALUES
-('Cliente Teste', 'cliente@sirb.local', '$2y$10$1k9iQdrx6V9QfXQ0v9dx2e9b9dQZbYJ4q6k9gVqQHzzcB3nB1n5wK', 'cliente');
+('Cliente Teste', 'cliente@sirb.com', '$2y$10$71bKMxHTSdxtLevyO0BT7uGhfZlCeI/WE9.PE/gJ9oVCaMkGsdShq', 'cliente');
 
 -- =========================
 -- Serviços da barbearia
