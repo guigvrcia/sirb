@@ -50,7 +50,7 @@ require_once __DIR__ . '/../app/header.php';
 </div>
 
 <div class="col-md-6">
-    <label class="form-label">Hora</label>
+    <label class="form-label">Horário</label>
     <select name="hora" id="hora" class="form-select" required>
         <option value="">Selecione</option>
         <option value="08:00">08:00</option>
@@ -77,43 +77,6 @@ const dataInput = document.getElementById('data');
 const barbeiroSelect = document.getElementById('barbeiro_id');
 const horaSelect = document.getElementById('hora');
 
-async function carregarHorarios() {
-    const data = dataInput.value;
-    const barbeiroId = barbeiroSelect.value;
-
-    horaSelect.innerHTML = '<option value="">Carregando...</option>';
-    horaSelect.disabled = true;
-
-    if (!data || !barbeiroId) {
-        horaSelect.innerHTML = '<option value="">Selecione primeiro a data e o barbeiro</option>';
-        return;
-    }
-
-    try {
-        const url = `<?= h(BASE_URL) ?>/private/ajax_buscar_horarios.php?data=${encodeURIComponent(data)}&barbeiro_id=${encodeURIComponent(barbeiroId)}`;
-        const resp = await fetch(url);
-        const horarios = await resp.json();
-
-        horaSelect.innerHTML = '';
-
-        if (!Array.isArray(horarios) || horarios.length === 0) {
-            horaSelect.innerHTML = '<option value="">Nenhum horário disponível</option>';
-            return;
-        }
-
-        horaSelect.innerHTML = '<option value="">Selecione</option>';
-        horarios.forEach(h => {
-            const opt = document.createElement('option');
-            opt.value = h;
-            opt.textContent = h;
-            horaSelect.appendChild(opt);
-        });
-
-        horaSelect.disabled = false;
-    } catch (e) {
-        horaSelect.innerHTML = '<option value="">Erro ao carregar horários</option>';
-    }
-}
 
 dataInput.addEventListener('change', carregarHorarios);
 barbeiroSelect.addEventListener('change', carregarHorarios);
