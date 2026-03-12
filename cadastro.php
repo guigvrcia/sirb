@@ -30,9 +30,8 @@ if (is_post()) {
             flash_set('success', 'Cadastro realizado. Faça login.');
             redirect(BASE_URL . '/login.php');
         } catch (PDOException $e) {
-            // email duplicado
-            flash_set('danger', 'Não foi possível cadastrar. Verifique se o e-mail já está em uso.');
-        }
+    flash_set('danger', 'Erro ao cadastrar: ' . $e->getMessage());
+}
     }
 }
 
