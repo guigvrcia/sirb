@@ -1,21 +1,15 @@
 /* ===== Estrutura da página ===== */
-
-html, body{
-    height:100%;
+html, body {
+    min-height: 100vh;
+    margin: 0;
 }
 
-body{
+body {
     font-family: Arial, Helvetica, sans-serif;
-
-    background-image:
-        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-        url('../public/img/barbearia.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-
-    display:flex;
-    flex-direction:column;
+    background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                url('/public/img/barbearia.jpg') center center / cover no-repeat fixed !important;
+    display: flex;
+    flex-direction: column;
 }
 
 
