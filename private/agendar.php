@@ -50,7 +50,7 @@ require_once __DIR__ . '/../app/header.php';
 </div>
 
 <div class="col-md-6">
-    <label class="form-label">Horário</label>
+    <label class="form-label">Hora</label>
     <select name="hora" id="hora" class="form-select" required>
         <option value="">Selecione</option>
         <option value="08:00">08:00</option>
