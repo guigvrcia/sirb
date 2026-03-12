@@ -17,7 +17,7 @@ $flash = flash_get();
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="<?= h(BASE_URL) ?>/public/css/styles.css">
+  <link rel="stylesheet" href="<?= h(BASE_URL) ?>/css/styles.css">
 </head>
 
 <body>
